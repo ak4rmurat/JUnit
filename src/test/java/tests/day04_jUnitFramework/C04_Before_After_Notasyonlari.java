@@ -1,7 +1,8 @@
-package day04_jUnitFramework;
+package tests.day04_jUnitFramework;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.C;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -10,24 +11,30 @@ import utilities.ReusableMethods;
 
 import java.time.Duration;
 
-public class C02_JUnitIlkTest {
-
+public class C04_Before_After_Notasyonlari {
     /*
-    JUnit'in bize sagladigi en buyuk avantajlardan biri @Test notasyonudur.
-    @Test sayesinde siradan methodlar bagimsiz olarak çalışabilecek test methodlarına donusur.
+    EGER her test method'undan önce mutlaka çalışmasını istediğimiz bir method varsa
 
-    JUnit'de bir class'daki test method'larinin hangi sira ile calisacagi ONGORULEMEZ ve DUZENLENEMEZ.
      */
-    // Asagidaki 3 websayfasine gidip, o sayfalara gittigimizi test edin
-    // testler birlikte veya ayri ayri calistirilabilmelidir.
-    // youtube. testotomasyonu, wisequarter
 
-    @Test @Ignore
-    public void youtubeTesti(){
+    WebDriver driver;
+
+    @Before
+    public void setUp(){
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+    @After
+    public void tearDown(){
+        ReusableMethods.bekle(2);
+        driver.quit();
+    }
+
+    @Test
+    @Ignore
+    public void youtubeTesti(){
 
         driver.get("https://www.youtube.com");
 
@@ -40,16 +47,10 @@ public class C02_JUnitIlkTest {
             System.out.println("Youtube Test FAILED");
         }
 
-        ReusableMethods.bekle(2);
-        driver.quit();
     }
 
     @Test
     public void testOtomasyonuTesti(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.testotomasyonu.com");
 
@@ -62,16 +63,10 @@ public class C02_JUnitIlkTest {
             System.out.println("Test Otomasyonu Test FAILED");
         }
 
-        ReusableMethods.bekle(2);
-        driver.quit();
     }
 
     @Test
     public void wiseQuarterTesti(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://wisequarter.com");
 
@@ -84,10 +79,5 @@ public class C02_JUnitIlkTest {
             System.out.println("Wisequarter Test FAILED");
         }
 
-        ReusableMethods.bekle(2);
-        driver.quit();
     }
-
-
-
 }

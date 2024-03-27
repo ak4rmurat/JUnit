@@ -1,4 +1,4 @@
-package day04_jUnitFramework;
+package tests.day04_jUnitFramework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
