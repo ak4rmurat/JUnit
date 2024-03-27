@@ -1,6 +1,8 @@
 package day04_jUnitFramework;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -9,19 +11,22 @@ import utilities.ReusableMethods;
 
 import java.time.Duration;
 
+public class C04_Before_After_Notasyonlari {
+    /*
+    EGER her test method'undan önce mutlaka çalışmasını istediğimiz bir method varsa
 
-
-public class C03_AyarlariMethodOlarakYapma {
+     */
 
     WebDriver driver;
 
+    @Before
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-
+    @After
     public void tearDown(){
         ReusableMethods.bekle(2);
         driver.quit();
@@ -30,7 +35,6 @@ public class C03_AyarlariMethodOlarakYapma {
     @Test
     @Ignore
     public void youtubeTesti(){
-        setUp();
 
         driver.get("https://www.youtube.com");
 
@@ -43,12 +47,10 @@ public class C03_AyarlariMethodOlarakYapma {
             System.out.println("Youtube Test FAILED");
         }
 
-        tearDown();
     }
 
     @Test
     public void testOtomasyonuTesti(){
-        setUp();
 
         driver.get("https://www.testotomasyonu.com");
 
@@ -61,12 +63,10 @@ public class C03_AyarlariMethodOlarakYapma {
             System.out.println("Test Otomasyonu Test FAILED");
         }
 
-        tearDown();
     }
 
     @Test
     public void wiseQuarterTesti(){
-        setUp();
 
         driver.get("https://wisequarter.com");
 
@@ -79,7 +79,5 @@ public class C03_AyarlariMethodOlarakYapma {
             System.out.println("Wisequarter Test FAILED");
         }
 
-        tearDown();
     }
-
 }
