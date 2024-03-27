@@ -1,6 +1,5 @@
-package tests.day03_maven;
+package day03_maven;
 
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.ReusableMethods;

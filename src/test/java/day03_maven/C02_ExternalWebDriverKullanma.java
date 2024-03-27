@@ -1,4 +1,4 @@
-package tests.day03_maven;
+package day03_maven;
 
 public class C02_ExternalWebDriverKullanma {
 
