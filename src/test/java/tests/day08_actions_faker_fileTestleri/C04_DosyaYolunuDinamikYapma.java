@@ -50,5 +50,7 @@ public class C04_DosyaYolunuDinamikYapma {
         dinamikDosyaYolu = System.getProperty("user.dir")+"\\src\\test\\java\\tests\\day08_actions_faker_fileTestleri\\deneme.txt";
         Assert.assertTrue(Files.exists(Paths.get(dinamikDosyaYolu))); // Bu kod ise herkeste calisir.
 
+        //C:\Users\MURAT\Desktop\JUnit   \src\test\java\tests\day08_actions_faker_fileTestleri\deneme.txt
+
     }
 }

@@ -32,6 +32,7 @@ public class C03_FileExist extends TestBase_BeforeAfter {
         String masaustuDosyaYolu = "C:/Users/MURAT/Desktop/logo.png";
 
         Assert.assertTrue(Files.exists(Paths.get(masaustuDosyaYolu)));
+       
 
     }
 }

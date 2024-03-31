@@ -32,17 +32,16 @@ public class C07_ExplicitWait {
 
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 
-        WebElement itsGoneYazisi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()=\"It's gone!\"]")));
+        WebElement itsGoneYazisi = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[text()=\"It's gone!\"]")));
         Assert.assertTrue(itsGoneYazisi.isDisplayed());
 
         driver.findElement(By.xpath("//*[text()=\"Add\"]")).click();
-        WebElement itsBackYazisi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()=\"It's back!\"]")));
+        WebElement itsBackYazisi = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[text()=\"It's back!\"]")));
         Assert.assertTrue(itsBackYazisi.isDisplayed());
 
         ReusableMethods.bekle(2);
         driver.quit();
-
     }
-
-
 }
